@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Todo App</title>
+        <style>
+          table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+          }
+          
+          td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+          }
+          
+          tr:nth-child(even) {
+            background-color: #dddddd;
+          }
+
+           #Description{
+            height: 80px;
+          }
+
+          .addBtn:hover {
+    background-color: rgb(179, 43, 43);
+  }
+  .header {
+    background-color:blue;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+  }
+  
+          </style>
+   </head>
+    <body>
+        <div id="myDIV" class="header">
+        <h1>My TodoList</h1>
+        <input type="text" id="myInput" placeholder="Whrite Your Title Task" >
+        <br><br>
+        <input type="text" id="Description" placeholder="Enter The Description">
+        <input type="date" id="Date-to-do" placeholder="Date to do this task">
+        <button onclick="AddNewElement()" class="addBtn">Click for Add to the list</button>
+    </div>
+    <table id="Table-list" class="tabll">
+        <tr>
+          <th> Title </th>
+          <th>Description</th>
+          <th>Date to do</th>
+          <th> begin </th>
+        </tr>
+    </table>
+
+    
+
+    <script src="todolist.js">
+    </script>
+    
+    </body>
+</html>
