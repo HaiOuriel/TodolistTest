@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+    <head>
+
+      <title>Todo App</title>
+      
+      <link href="style.css" rel="stylesheet" type="text/css" >
+      
+   </head>
+    <body>
+        <div id="myDIV" class="header" >
+        <h1>My TodoList</h1>
+        <h4><a href="http://localhost:3000/Add">To Add Task click here</a></h4> 
+        <br><div id="timer"></div>
+        </div>
+
+        <br>
+        <form id="choicetask" >
+          <input type="radio" name="choice" class="RadioChoice" value="All" checked> All taks
+          <input type="radio" name="choice" class="RadioChoice" value="Finished"> Finished Task
+          <input type="radio" name="choice" class="RadioChoice" value="NotF"> Task to do
+          <Strong style=" margin-left: 504px"> To Check Accomplished task click on it</Strong>
+          <a style=" margin-left: 204px" href="http://localhost:3000/">To Know if you are near to a task Click here</a>
+        </form>
+        <br>
+
+    <table id="Table-list" class="tabll">
+        <tr style="padding: 10px">
+          <th style="background-color: red"> Title </th>
+          <th >Description</th>
+          <th > Start Date </th>
+          <th style="background-color :red">Date to execute</th>
+          <th >Place to execute</th>
+          <th> X for delete</th>
+        </tr>
+    </table>
+   
+    <script src="jquery.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <script src="Add.js"></script> -->
+    <script src="todolist.js"></script>
+    <!-- <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.3.1/stitch.js"></script> -->
+    </body>
+</html>

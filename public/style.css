@@ -1,0 +1,118 @@
+
+
+.header {
+  background-color:burlywood;
+  padding: 40px ;
+  color: darkred;
+  text-align: center;
+  }
+
+  .inputDiv{
+    margin-left: -80%; 
+    }
+
+    #myInput{
+      padding: 5px;
+      width: 8%;
+        }
+
+    .rowInput {
+      margin-left: -116px;
+    }
+    #Description {
+      padding: 11px;
+  }
+  
+  
+    #Date-to-do{
+    margin-inline-start: 15px;
+    }
+
+    .DescInput{
+      margin-left: -147px;
+
+    }
+    
+     table {
+          font-family: arial, sans-serif;
+           border-collapse: collapse;
+          width: 100%;
+        }     
+  
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:hover {
+  background: darkgrey;
+  
+  }
+  .close:hover {
+    background-color: #f44336 !important;
+    color: white;
+    } 
+
+    #mapholder{
+    position: relative;
+    height: 100px;
+    width: 250px;
+  }
+   button{
+    border-radius: 30px;
+    background: red;
+    color: white;
+    border-color: black;
+  } 
+
+  .Do{
+    text-decoration: line-through;
+    background:green;
+  }
+
+  
+  /* .pvw-title span {
+    display: none;
+  } */
+  /* #bool:after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "This text replaces the original.";
+  }
+  #bool {
+
+    content: 'whatever it is you want to add';
+  } */
+/* tr:nth-child(even) {
+  background-color: #dddddd;
+} */
+
+
+ /* 
+
+
+td.checked {
+background:red;
+color: green;
+text-decoration: line-through;
+}
+
+/* Add a "checked" mark when clicked on */
+/* td.checked::before {
+content: '';
+position: absolute;
+border-color: #fff;
+border-style: solid;
+border-width: 0 2px 2px 0;
+top: 10px;
+left: 16px;
+transform: rotate(45deg);
+height: 15px;
+width: 7px;
+}
+.close:hover {
+background-color: #f44336 !important;
+color: white;
+} */ */
