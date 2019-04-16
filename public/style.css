@@ -1,11 +1,11 @@
 
 
 .header {
-  background-color:burlywood;
-  padding: 40px ;
-  color: darkred;
+  background-color: #343a40;
+  padding: 40px;
+  color: #ffffff;
   text-align: center;
-  }
+}
 
   .inputDiv{
     margin-left: -80%; 
@@ -53,11 +53,7 @@ tr:hover {
     color: white;
     } 
 
-    #mapholder{
-    position: relative;
-    height: 100px;
-    width: 250px;
-  }
+
    button{
     border-radius: 30px;
     background: red;
@@ -67,52 +63,26 @@ tr:hover {
 
   .Do{
     text-decoration: line-through;
-    background:green;
+    background:rgba(149, 218, 142, 0.781)!important;
   }
-
-  
-  /* .pvw-title span {
-    display: none;
-  } */
-  /* #bool:after {
-    visibility: visible;
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: "This text replaces the original.";
-  }
-  #bool {
-
-    content: 'whatever it is you want to add';
-  } */
-/* tr:nth-child(even) {
-  background-color: #dddddd;
-} */
-
-
- /* 
-
-
-td.checked {
-background:red;
-color: green;
-text-decoration: line-through;
+  .btn.btn-info{
+  margin-left: 96%;
+  background-color: #0b2767;
+  margin-top: -2%;
 }
 
-/* Add a "checked" mark when clicked on */
-/* td.checked::before {
-content: '';
-position: absolute;
-border-color: #fff;
-border-style: solid;
-border-width: 0 2px 2px 0;
-top: 10px;
-left: 16px;
-transform: rotate(45deg);
-height: 15px;
-width: 7px;
+#idname{
+  display: none;
 }
-.close:hover {
-background-color: #f44336 !important;
-color: white;
-} */ */
+#timer{
+  color:whitesmoke;
+}
+P{
+  width: 15%;
+}
+#red{
+ background:  #cd5c5c!important;
+}
+#green{
+  background:  #ace2a6!important;
+}

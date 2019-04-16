@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 
     <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
       <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
       <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
             
@@ -10,41 +12,30 @@
                               position: relative;
                               height: 600px;
                               width: 1000px;
+                              margin-left: 22%
                         }
-                        body{
-                          background:cadetblue;
-                          color: black;
-                        }
-                        a{
-                          color: red;
-                        }
-                        #Description{
-                          width: 1000px;
-                          height: 50; 
-                       }
-                        .inputDiv{
-                          font-size: 30;
-                        }
-                        .addBtn:hover {
-      background-color: rgb(179, 43, 43);
-      }
+  
              </style>
     </head>
-    <body  style="border: 0; margin: 0;">
-            <div class="inputDiv">
-                    <div class="rowInput">
-                      Title :<input type="text" id="TitleInput" placeholder="Whrite Your Title Task" >
-                    </div>
-                     <br><br>
-                     <div class="DescInput">
-                     Description :<input type="text" id="Description" placeholder="Enter The Description">
-                     </div>
-                      <br><br>
-                     Date to execute :<input type="date" id="Date-to-do" placeholder="Date to do this task">
-                     <button onclick="AddTaskToJson()" class="addBtn">Click for Add to the list</button>
-                 </div><br><br>
-              <a href="http://localhost:3000/">Click here to return To the Todo list</a>
-              <p>Choose Place to execute the task</p>
+    <body >
+                 <div class="container">
+                      <div class="form-group rowInput">
+                        <label for="usr">Title :</label>
+                        <input type="text" class="form-control" id="TitleInput" placeholder="Whrite Your Title Task">
+                      </div>
+                      <div class="form-group">
+                        <label usr="pwd">Description:</label>
+                        <input type="text" class="form-control" id="Description" placeholder="Enter The Description">
+                      </div>
+                      <div class="form-group rowInput">
+                          <label for="usr"> Date to execute:</label>
+                          <input type="date" class="form-control" id="Date-to-do" placeholder="Date to do this task">
+                        </div>
+                      <button onclick="AddTaskToJson()"  type="submit" class="btn btn-primary">Click for Add to the list</button>
+                    
+                  </div>
+              <a href="http://localhost:3000/"><h5> Click here to return To the Todo list</h5></a>
+              <h3>Choose Place to execute the task</h3>
     <div id="mapholder" ></div>
 
     <script src="jquery.js"></script>
@@ -53,3 +44,4 @@
 
     </body>
 </html>
+

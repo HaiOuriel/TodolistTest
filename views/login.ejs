@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+body{
+    /* width: 12% */
+    margin-left: 43%;
+    margin-top: 8%;
+}
+.form-group{
+    width: 20%
+}
+button{
+    margin-left: 28%;
+
+}
+</style>
+</head>
+<body>
+<strong>You need to be logged in, please!</strong><br>
+<strong>if you already have a count <a href="http://localhost:3000/signin">click here to sign in</a></strong><br>
+<% if (error) { %><p>Erreur: <%= error %></p><% } %><br>
+<form method="post">
+<div class="form-group">
+    <label for="usr">Name:</label>
+    <input type="text" name="username" placeholder="Type your login" class="form-control" id="usr"autofocus required<% if (username) { %> value="<%= username %>"<% } %>>
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" name="pwd"class="form-control" id="pwd" autofocus required<% if (pwd) { %> value="<%= pwd %>"<% } %>>
+<br>
+    <button onclick="" type="submit" class="btn btn-primary">submit</button>
+</form>
+</div>
+
+  <script src="jquery.js"></script>
+</body>
+</html>

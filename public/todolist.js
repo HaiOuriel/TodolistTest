@@ -1,8 +1,5 @@
-
     $(document).ready(function(){
-
-      setInterval(myTimer, 1000);
-
+        
       $(document).on('click','#btnDelete',function(e) {
         $(this).parent().parent().hide();
         DeleteTAsk(this.parentElement.parentNode.children.item(2).textContent);    
@@ -10,7 +7,6 @@
     
       $(document).on('click','.RadioChoice',function(e){
         Toaffiche(this.value);
-        
       })
 
       $(document).on('click','.Trcheck',function(e){
@@ -34,6 +30,7 @@
       });
       Geolocationnn();
       readDatafromserver()
+      setInterval(myTimer, 1000);
       setInterval(Position,1800000);//All half hour
       
     });
@@ -119,10 +116,17 @@ function readDatafromserver(){
     type: "GET",
     dataType: "JSON",
     success: function(data){
-
       JsonPositionTask = data;
         alert("Connection to Db server Succes");
-        for (let i = 0; i < data.length; i++) {
+        var deployname ="none";
+        if(data[data.length - 1].status=="admin"){
+          alert("you are the admin")
+          $('#idname').css('display','table-cell');
+          deployname ='table-cell';
+        }else if (data[data.length - 1].status=="light") {
+          
+        } 
+        for (let i = 0; i < data.length - 1; i++) {
           var classe;
           if(data[i].finished)
           {
@@ -130,21 +134,26 @@ function readDatafromserver(){
           }else{
             classe = "not"
           }
-          var Title = "<tr class= 'Trcheck  "+classe+"' ><td>"+ data[i].Title + "</td><td>" +data[i].Descr +"</td><td>" +data[i].Start +"</td><td>" +data[i].ExecuteDate +"</td>"+
-          +"<td>" +data[i].ExecuteDate +"</td><td> "+data[i].Location.name+"</td><td><button id='btnDelete' class='btn btn-danger'>Delete</button> </td></tr>";
+          
+          var neartaskColor ="none";
+          if (!(data[i].finished)&&(distance(crd.latitude,crd.longitude,data[i].Location.x,data[i].Location.y,"K")) <= 1){
+            neartaskColor ="background: indianred";
+            swal("You Are less that 1 Km for accomplish this task : "+ data[i].Title+"", {
+              buttons: { //creates a button. You can separate them with a comma.
+                cancel: "Cancel!", 
+                catch: {
+                  text: "Try to do it!",
+                  value: "catch",
+                },   
+              },
+            })
+          }
+
+          var Title = "<tr class= 'Trcheck  "+classe+"' style='"+neartaskColor+"' ><td>"+ data[i].Title + "</td><td>" +data[i].Descr +"</td><td>" +data[i].Start +"</td><td>" +data[i].ExecuteDate +"</td>"+
+          +"<td>" +data[i].ExecuteDate +"</td><td> "+data[i].Location.name+"</td><td style= 'display:"+deployname+"'>"+data[i].username+"</td><td><button id='btnDelete' class='btn btn-danger'>Delete</button> </td></tr>";
 
        
-                        if (!(data[i].finished)&&(distance(crd.latitude,crd.longitude,data[i].Location.x,data[i].Location.y,"K")) <= 1){
-                          swal("You Are less that 1 Km for accomplish this task : "+ data[i].Title+"", {
-                            buttons: { //creates a button. You can separate them with a comma.
-                              cancel: "Cancel!", 
-                              catch: {
-                                text: "Try to do it!",
-                                value: "catch",
-                              },   
-                            },
-                          })
-                        }
+                        
 
           $('#Table-list').append(Title)
           
@@ -159,6 +168,24 @@ function readDatafromserver(){
  
 }
 
+function Disconect(){
+
+  $.ajax({
+    url: 'http://localhost:3000/logout',
+    type: "GET",
+     success: function(){
+  
+      alert("You disconect with succes");
+      location.reload(true)
+
+            },
+    error: function(error){
+          alert("Error: you cant disconect ");
+         console.log(error);
+    }
+});
+
+}
 
 function distance(lat1, lon1, lat2, lon2, unit) {
 	if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -204,5 +231,6 @@ navigator.geolocation.getCurrentPosition(success, error, options);
 
 function myTimer() {
   var d = new Date();
- $("timer").innerHTML = d.toLocaleTimeString();
+ document.getElementById("timer").innerHTML = d.toLocaleTimeString();
 }
+

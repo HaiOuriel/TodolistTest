@@ -3,28 +3,32 @@
     <head>
 
       <title>Todo App</title>
-      
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
       <link href="style.css" rel="stylesheet" type="text/css" >
-      
    </head>
     <body>
         <div id="myDIV" class="header" >
+            <button type="button" onclick="Disconect()" class="btn btn-info">Disconect</button>
         <h1>My TodoList</h1>
         <h4><a href="http://localhost:3000/Add">To Add Task click here</a></h4> 
         <br><div id="timer"></div>
-        </div>
-
-        <br>
+            </div> 
+            <p class="bg-danger text-white" id="red">This color represents a near task.</p>
+            <p class="bg-success text-white" id="green">This color indicates accomplished task.</p>
+          
+            <br>
         <form id="choicetask" >
-          <input type="radio" name="choice" class="RadioChoice" value="All" checked> All taks
-          <input type="radio" name="choice" class="RadioChoice" value="Finished"> Finished Task
-          <input type="radio" name="choice" class="RadioChoice" value="NotF"> Task to do
-          <Strong style=" margin-left: 504px"> To Check Accomplished task click on it</Strong>
+          <input type="radio" name="choice" class="RadioChoice" value="All" checked> All taks<br>
+              <input type="radio" name="choice" class="RadioChoice" value="Finished"> Finished Task <br>
+              <input type="radio" name="choice" class="RadioChoice" value="NotF"> Task to do
+          <Strong style=" margin-left: 38%"> To Check Accomplished task click on it</Strong>
           <a style=" margin-left: 204px" href="http://localhost:3000/">To Know if you are near to a task Click here</a>
+        
         </form>
         <br>
 
-    <table id="Table-list" class="tabll">
+    <!-- <table id="Table-list" class="tabll">
         <tr style="padding: 10px">
           <th style="background-color: red"> Title </th>
           <th >Description</th>
@@ -33,8 +37,22 @@
           <th >Place to execute</th>
           <th> X for delete</th>
         </tr>
-    </table>
-   
+    </table> -->
+    <div class="table-responsive-sm">    
+      <table id="Table-list"  class="table tabll">
+        <thead class="thead-dark">
+          <tr>
+            <th > Title </th>
+            <th >Description</th>
+            <th > Start Date </th>
+            <th >Date to execute</th>
+            <th >Place to execute</th>
+            <th id="idname">username Task</th>
+            <th> X for delete</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+
     <script src="jquery.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- <script src="Add.js"></script> -->

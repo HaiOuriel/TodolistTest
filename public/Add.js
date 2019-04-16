@@ -52,6 +52,7 @@ window.onload = function() {
                              "y" :" ",
                          },
               "finished" :false,
+              "username": "",
             };
         var TitleText = document.createTextNode(inputValue);
         NewTAsk.Title =TitleText.data;
@@ -90,6 +91,8 @@ window.onload = function() {
               data: JSON.stringify(NewTAsk),
               success: function (data) {
                 alert("You add With succes");
+                window.location.href = "http://localhost:3000/";
+
               },
               error: function(error){
                 alert("Error: you cant connect to dB" + NewTAsk);
@@ -121,10 +124,6 @@ window.onload = function() {
       });
       }
 
-    
-      
-     
-        
       document.getElementById("TitleInput").value = "";
       document.getElementById("Description").value = "";
       document.getElementById("Date-to-do").value = "";
