@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <style>
+                #frm1 ,#frm2{
+                    width: 50%;
+                }
+                </style>
+            </head>
+<body>
+
+  <p>Enter an two Array number please :</p>
+  Array one: <input type="number" id="frm1" value="0"><br>  
+  Array two: <input type="number" id="frm2" value="0"><br>  
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="Result"></p>
+
+<script>
+function myFunction() {
+  var FirstArr  =document.getElementById("frm1").value;
+  var SecondArr =document.getElementById("frm2").value;
+  var bigArr;
+  var smallArr;
+
+ if (FirstArr.length >SecondArr.length) {
+    bigArr =FirstArr;
+    smallArr= SecondArr;
+ } else {
+    bigArr =SecondArr;
+    smallArr= FirstArr;
+ }
+var indexTwo=0;
+var flag = true;
+ for (let index = 0; index < smallArr.length; index++) {
+
+       var element = smallArr[index];
+
+       if(element != bigArr[indexTwo]){
+        flag = false;
+        break;
+       }
+        while((element == bigArr[indexTwo]) && (indexTwo < bigArr.length)){
+            indexTwo++;
+        }
+   }
+
+   if((bigArr.length ) != indexTwo){
+    flag = false;
+   }
+
+
+
+  document.getElementById("Result").innerHTML = "verdict :"+ flag;  
+}
+
+
+
+
+</script>
+
+</body>
+</html>
+

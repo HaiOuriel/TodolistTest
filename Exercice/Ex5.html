@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <style>
+                #frm1, #frm2{
+                    width: 50%;
+                }
+                </style>
+            </head>
+<body>
+
+  <p>Enter an Array number please :</p>
+  Array one: <input type="number" id="frm1" value="0"><br>  
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="Result"></p>
+
+<script>
+function myFunction() {
+  var FirstArr  =document.getElementById("frm1").value;
+
+  var finalText =""
+ var Myarray =FirstArr;
+
+ while (Myarray.length > 0) {
+
+    var index = 1;
+    var NewArr=[Myarray.charAt(0)];
+     while(SingleDigitArray(NewArr,Myarray.charAt(index))){
+      
+        NewArr.push(Myarray.charAt(index))
+        index++;
+    }
+    finalText +="{"+NewArr+"}";
+    Myarray = Myarray.substring(index,Myarray.length)
+ }
+
+
+
+  document.getElementById("Result").innerHTML = finalText;  
+}
+
+function SingleDigitArray(Arr , newDigit){
+var isSIngle = true;
+    for (let index = 0; index < Arr.length; index++) {
+       if(Arr[index] == newDigit || newDigit ==""){
+        return(false);
+       }        
+    }
+    return(isSIngle)
+}
+
+
+</script>
+
+</body>
+</html>
+

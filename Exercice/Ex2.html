@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        #frm1{
+            width: 50%;
+        }
+        </style>
+    </head>
+<body>
+
+  <p>Enter any Array number please :</p>
+  Number: <input type="number" id="frm1" value="0"><br>  
+
+  number to researche: <input type="number" id="mynumber" value="0"><br>  
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="Result"></p>
+
+<script>
+function myFunction() {
+  var arraynum = document.getElementById("frm1").value;
+  var searchnumber = document.getElementById("mynumber").value;
+  var index = 1;
+  var count =0;
+var Myarray =arraynum;
+ while (Myarray.length > 0) {
+
+    // var currdigit  = arraynum % 10;  
+  
+    if(Number(Myarray.charAt(Myarray.length - 1))  == searchnumber){
+        count++;
+    }
+
+    Myarray = Myarray.substring(0,Myarray.length -1 )
+
+  
+    // arraynum/=10;
+    // arraynum = Math.trunc(arraynum);
+ }
+  var finalText ="the number "+searchnumber+" Appears :"+count +" times" ;
+
+
+  document.getElementById("Result").innerHTML = finalText;
+//   document.getElementById("frm1").value = "0";
+
+}
+</script>
+
+</body>
+</html>
+

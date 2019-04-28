@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        #frm1{
+            width: 50%;
+        }
+        </style>
+    </head>
+<body>
+
+  <p>Enter any classified Array of number please :</p>
+  Number: <input type="number" id="frm1" value="0"><br>  
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="Result"></p>
+
+<script>
+function myFunction() {
+  var arraynum = document.getElementById("frm1").value;
+  var count =0;
+  var CurrentSearchDigit = 0;
+  var finalText =""
+ var Myarray =arraynum;
+ var lastdigitnumber= 0;
+
+ while (Myarray.length > 0) {
+
+    if(Number(Myarray.charAt(count) < lastdigitnumber)){
+        finalText =" Error You must enter a classified array"
+        break;
+    }
+
+    
+    while(Number(Myarray.charAt(count))  == CurrentSearchDigit){
+
+        count++;
+    }
+    if (count == 0) {
+    }else
+    {
+    finalText += CurrentSearchDigit+ " : "+ count +" times <br>";
+    }
+    CurrentSearchDigit++;
+    lastdigitnumber = Number(Myarray.charAt(count-1));
+    Myarray = Myarray.substring(count,Myarray.length)
+    count =0;
+  
+
+ }
+
+
+
+  document.getElementById("Result").innerHTML = finalText;
+//   document.getElementById("frm1").value = "0";
+
+}
+</script>
+
+</body>
+</html>
+

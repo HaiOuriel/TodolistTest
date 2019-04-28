@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <p>Enter any number please :</p>
+  Number: <input type="number" id="frm1" value="0"><br>  
+
+
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="Result"></p>
+
+<script>
+function myFunction() {
+  var mynumber = document.getElementById("frm1").value;
+  var numberofA = Math.trunc(mynumber / 26 ) ;
+  var lastLetter = mynumber % 26;
+  var finalText ="";
+  for (let index = 0; index < numberofA; index++) {
+    finalText += "A";
+    }
+
+  if(lastLetter!=0){
+    var letter =String.fromCharCode(65 + lastLetter);
+    finalText +=letter;
+}
+
+  document.getElementById("Result").innerHTML = finalText;
+  document.getElementById("frm1").value = "0";
+
+}
+</script>
+
+</body>
+</html>
+
