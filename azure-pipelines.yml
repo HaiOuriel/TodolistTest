@@ -5,8 +5,8 @@ pool:
   vmImage: 'ubuntu-latest'## name of the VM image you want to use; valid only in the Microsoft-hosted pool
 
 variables:
-  myRegistry: 'myregistryname'
-  myRepositoryName: 'myrepositoryname'
+  myRegistry: 'haiourielazuelos'
+  myRepositoryName: 'docker101tutorial'
   deploymentYaml: './kubernetes/deployment.yaml'
 
 steps: #a single step
@@ -36,7 +36,7 @@ steps: #a single step
   displayName: 'kubectl apply'
   inputs:
     connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'myKubernetesServiceEndpoint)'
+    kubernetesServiceEndpoint: 'myKubernetesServiceEndpoint'
     namespace: 'myNamespace'
     command: 'apply'
     arguments: '-f $(deploymentYaml)'
