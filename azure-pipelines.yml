@@ -31,14 +31,3 @@ steps: #a single step
         Set-Content -Path $(deploymentYaml)
         # Get content
         Get-Content -path $(deploymentYaml)
-
-- task: Kubernetes@1
-  displayName: 'kubectl apply'
-  inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'myKubernetesServiceEndpoint'
-    namespace: 'myNamespace'
-    command: 'apply'
-    arguments: '-f $(deploymentYaml)'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Container Registry'
