@@ -1,0 +1,44 @@
+trigger:
+- master # list of branch names, which branches cause a continuous integration build to run.
+
+pool:
+  vmImage: 'ubuntu-latest'## name of the VM image you want to use; valid only in the Microsoft-hosted pool
+
+variables:
+  myRegistry: 'haiourielazuelos'
+  myRepositoryName: 'docker101tutorial'
+  deploymentYaml: './kubernetes/deployment.yaml'
+
+steps: #a single step
+- task: Docker@2 # reference to a task and version,
+  displayName: 'Build Docker Image'
+  inputs:
+   containerRegistry: 'DockerRegistryServiceConnection'
+   repository: '$(myRegistry)/$(myRepositoryName)'
+   command: 'buildAndPush'
+   Dockerfile: '**/Dockerfile' # default working directory which is source directory.
+   tags: |
+      $(Build.BuildId)
+      latest
+
+- task: PowerShell@2
+  displayName: 'Replace version number in deployment yaml'
+  inputs:
+    targetType: inline
+    script: |
+        # Replace image tag in YAML
+        ((Get-Content -path $(deploymentYaml) -Raw) -replace '##BUILD_ID##','$(Build.BuildId)') | 
+        Set-Content -Path $(deploymentYaml)
+        # Get content
+        Get-Content -path $(deploymentYaml)
+
+- task: Kubernetes@1
+  displayName: 'kubectl apply'
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'myKubernetesServiceEndpoint'
+    namespace: 'myNamespace'
+    command: 'apply'
+    arguments: '-f $(deploymentYaml)'
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Container Registry'
